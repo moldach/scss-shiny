@@ -1,0 +1,510 @@
+/* CSS */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap");
+*, *::before, *::after {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+:root {
+  --pos0: 35px;
+  --pos1: -80px;
+  --pos2: 105px;
+  --pos3: -10px;
+  --pos4: -125px;
+  --pos5: 60px;
+  --pos6: -55px;
+  --pos7: 130px;
+  --pos8: 15px;
+  --pos9: -100px;
+  --pos10: 85px;
+  --pos11: -30px;
+  --pos12: -145px;
+  --pos13: 40px;
+  --pos14: -75px;
+  --pos15: 110px;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #111;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1800px;
+  perspective-origin: 40% calc(50% - 360px);
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  top: calc(50% + 0px);
+  transform-style: preserve-3d;
+  animation: rotate 80s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+.floor {
+  position: absolute;
+  width: 100vmax;
+  height: 100vmax;
+  background-image: radial-gradient(#000d, #0000 33%, #111 66%), repeating-linear-gradient(#afa3 0, transparent 1px 40px, #afa3 41px), repeating-linear-gradient(to left, #afa3 0, transparent 1px 40px, #afa3 41px);
+  transform: translate(-50%, -50%) rotateX(90deg) translateZ(-180px);
+}
+
+.leg {
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: rotateX(-90deg);
+  transform-origin: top;
+}
+
+.leg:nth-child(1) {
+  top: 36px;
+  left: 36px;
+}
+
+.leg:nth-child(2) {
+  top: 36px;
+  right: 36px;
+}
+
+.leg:nth-child(3) {
+  top: 324px;
+  left: 36px;
+}
+
+.leg:nth-child(4) {
+  top: 324px;
+  right: 36px;
+}
+
+.leg::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: -18px;
+  width: 36px;
+  height: 162px;
+  background-image: linear-gradient(#111, #1111), linear-gradient(to left, #222, #777, #222);
+  border-radius: 0 0 50% 50% / 0 0 5px 5px;
+  animation: rotate 80s linear infinite reverse;
+}
+
+.table {
+  position: absolute;
+  top: -180px;
+  left: -360px;
+  height: 360px;
+  width: 720px;
+  background-color: #066;
+  background-image: radial-gradient(#fff1, #0003), linear-gradient(to left, #fff 6px, #fff0 6px calc(100% - 6px), #fff calc(100% - 6px)), linear-gradient(#fff 6px, #fff0 6px calc(50% - 3px), #fff calc(50% - 3px) calc(50% + 3px), #fff0 calc(50% + 3px) calc(100% - 6px), #fff calc(100% - 6px));
+  transform: rotateX(90deg);
+  transform-style: preserve-3d;
+}
+
+.table > .net {
+  position: absolute;
+  width: 5%;
+  height: 100%;
+  left: 50%;
+  transform: rotateY(-90deg);
+  transform-origin: left;
+  transform-style: preserve-3d;
+  background-image: repeating-linear-gradient(45deg, #aaa 0 1px, #aaa0 1px 4px), repeating-linear-gradient(135deg, #aaa 0 1px, #aaa0 1px 4px);
+  border: 2px solid #fff;
+}
+
+.table > .net > .top {
+  position: absolute;
+  top: 0;
+  right: -1px;
+  width: 2px;
+  height: 100%;
+  background-color: #ddd;
+  transform: rotateY(90deg);
+}
+
+.table > .net > .left {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ccc;
+  transform: rotateX(90deg);
+}
+
+.table > .net > .right {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ccc;
+  transform: rotateX(90deg);
+}
+
+.table > .front {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 18px;
+  background-color: #004d4d;
+  transform: rotateX(-90deg);
+  transform-origin: top;
+}
+
+.table > .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 18px;
+  background-color: #004d4d;
+  transform: rotateX(-90deg) rotateY(180deg);
+  transform-origin: top;
+}
+
+.table > .front, .table > .back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10.8px;
+  color: #fff9;
+}
+
+.table > .left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 100%;
+  background-color: #003333;
+  transform: rotateY(90deg);
+  transform-origin: left;
+}
+
+.table > .right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 18px;
+  height: 100%;
+  background-color: #003333;
+  transform: rotateY(-90deg);
+  transform-origin: right;
+}
+
+.ballWrapper {
+  position: absolute;
+  bottom: 1px;
+  transform-style: preserve-3d;
+  animation: ballLeft 2.5s infinite cubic-bezier(0.4, 0.5, 0.6, 0.6), ballHeight 0.625s -2.1875s infinite ease-in alternate, ballZ 20s infinite cubic-bezier(0.4, 0.5, 0.6, 0.6);
+}
+
+@keyframes ballLeft {
+  0%, 100% {
+    left: -354.006px;
+  }
+  50% {
+    left: 354.006px;
+  }
+}
+
+@keyframes ballHeight {
+  0% {
+    height: 54px;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+@keyframes ballZ {
+  0%, 100% {
+    transform: translateZ(var(--pos0));
+  }
+  6.25% {
+    transform: translateZ(var(--pos1));
+  }
+  12.5% {
+    transform: translateZ(var(--pos2));
+  }
+  18.75% {
+    transform: translateZ(var(--pos3));
+  }
+  25% {
+    transform: translateZ(var(--pos4));
+  }
+  31.25% {
+    transform: translateZ(var(--pos5));
+  }
+  37.5% {
+    transform: translateZ(var(--pos6));
+  }
+  43.75% {
+    transform: translateZ(var(--pos7));
+  }
+  50% {
+    transform: translateZ(var(--pos8));
+  }
+  56.25% {
+    transform: translateZ(var(--pos9));
+  }
+  62.5% {
+    transform: translateZ(var(--pos10));
+  }
+  68.75% {
+    transform: translateZ(var(--pos11));
+  }
+  75% {
+    transform: translateZ(var(--pos12));
+  }
+  81.25% {
+    transform: translateZ(var(--pos13));
+  }
+  87.5% {
+    transform: translateZ(var(--pos14));
+  }
+  93.75% {
+    transform: translateZ(var(--pos15));
+  }
+}
+
+.ballWrapper .ball {
+  position: absolute;
+  top: -11.988px;
+  left: -5.994px;
+  width: 11.988px;
+  height: 11.988px;
+  background-color: #fff;
+  background-image: radial-gradient(circle at 50% 10%, #fff, #333);
+  border-radius: 50%;
+  animation: rotate 80s linear infinite reverse;
+}
+
+.ballWrapper .ballShadow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 35.964px;
+  height: 35.964px;
+  background-image: radial-gradient(#000, #0000 50%);
+  transform: rotateX(-90deg) translateY(-11.988px);
+  animation: ballShadowTransform 0.625s -2.1875s infinite ease-in alternate;
+}
+
+@keyframes ballShadowTransform {
+  from {
+    transform: translate(-50%, 50%) rotateX(90deg) scale(4);
+    opacity: 0.1;
+  }
+  to {
+    transform: translate(-50%, 50%) rotateX(90deg) scale(1);
+    opacity: 0.6;
+  }
+}
+
+.player {
+  position: absolute;
+  top: 0;
+  width: 36px;
+  height: 36px;
+  transform: rotateY(90deg);
+  transform-style: preserve-3d;
+}
+
+.player1 {
+  left: 360px;
+  animation: player1Pos 20s infinite ease-in-out;
+}
+
+@keyframes player1Pos {
+  6.25%, 12.5% {
+    transform: rotateY(-90deg) translateX(var(--pos1)) translateY(-61.2px) translateZ(18px);
+  }
+  18.75%, 25% {
+    transform: rotateY(-90deg) translateX(var(--pos3)) translateY(-61.2px) translateZ(18px);
+  }
+  31.25%, 37.5% {
+    transform: rotateY(-90deg) translateX(var(--pos5)) translateY(-61.2px) translateZ(18px);
+  }
+  43.75%, 50% {
+    transform: rotateY(-90deg) translateX(var(--pos7)) translateY(-61.2px) translateZ(18px);
+  }
+  56.25%, 62.5% {
+    transform: rotateY(-90deg) translateX(var(--pos9)) translateY(-61.2px) translateZ(18px);
+  }
+  68.75%, 75% {
+    transform: rotateY(-90deg) translateX(var(--pos11)) translateY(-61.2px) translateZ(18px);
+  }
+  81.25%, 87.5% {
+    transform: rotateY(-90deg) translateX(var(--pos13)) translateY(-61.2px) translateZ(18px);
+  }
+  93.75%, 100%, 0% {
+    transform: rotateY(-90deg) translateX(var(--pos15)) translateY(-61.2px) translateZ(18px);
+  }
+}
+
+.player1 > .playerBox {
+  background-color: #903;
+  animation-delay: -1.25s;
+}
+
+.player2 {
+  right: 360px;
+  animation: player2Pos 20s infinite ease-in-out;
+}
+
+@keyframes player2Pos {
+  0%, 6.25%, 100% {
+    transform: rotateY(90deg) translateX(calc(var(--pos0) * -1)) translateY(-61.2px) translateZ(18px);
+  }
+  12.5%, 18.75% {
+    transform: rotateY(90deg) translateX(calc(var(--pos2) * -1)) translateY(-61.2px) translateZ(18px);
+  }
+  25%, 31.25% {
+    transform: rotateY(90deg) translateX(calc(var(--pos4) * -1)) translateY(-61.2px) translateZ(18px);
+  }
+  37.5%, 43.75% {
+    transform: rotateY(90deg) translateX(calc(var(--pos6) * -1)) translateY(-61.2px) translateZ(18px);
+  }
+  50%, 56.25% {
+    transform: rotateY(90deg) translateX(calc(var(--pos8) * -1)) translateY(-61.2px) translateZ(18px);
+  }
+  62.5%, 68.75% {
+    transform: rotateY(90deg) translateX(calc(var(--pos10) * -1)) translateY(-61.2px) translateZ(18px);
+  }
+  75%, 81.25% {
+    transform: rotateY(90deg) translateX(calc(var(--pos12) * -1)) translateY(-61.2px) translateZ(18px);
+  }
+  87.5%, 93.75% {
+    transform: rotateY(90deg) translateX(calc(var(--pos14) * -1)) translateY(-61.2px) translateZ(18px);
+  }
+}
+
+.player2 > .playerBox {
+  background-color: #039;
+}
+
+.playerBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(#0000, #0004);
+  transform-style: preserve-3d;
+  animation: playerHit 2.5s infinite ease-in;
+}
+
+@keyframes playerHit {
+  0%, 90%, 100% {
+    transform: translateZ(0);
+  }
+  96.66% {
+    transform: translateZ(-36px);
+  }
+}
+
+.playerBox .top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 9px;
+  background-color: inherit;
+  transform: rotateX(-90deg);
+  transform-origin: top;
+}
+
+.playerBox .left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 9px;
+  height: 100%;
+  background-color: inherit;
+  background-image: linear-gradient(#0000, #0007);
+  transform: rotateY(90deg);
+  transform-origin: left;
+}
+
+.playerBox .right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 9px;
+  height: 100%;
+  background-color: inherit;
+  background-image: linear-gradient(#0000, #0007);
+  transform: rotateY(-90deg);
+  transform-origin: right;
+}
+
+.playerBox .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  background-image: linear-gradient(#0000, #0004);
+  transform: translateZ(-9px);
+}
+
+.playerBox .shadow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 300%;
+  height: 100%;
+  background-image: radial-gradient(at top, #0003, #0000 50%);
+  transform-origin: top;
+  animation: playerShadow 2.5s infinite ease-in;
+  animation-delay: inherit;
+}
+
+@keyframes playerShadow {
+  0%, 90%, 100% {
+    transform: translate(-50%, 61.2px) rotateX(90deg);
+    opacity: 1;
+  }
+  96.66% {
+    transform: translate(-50%, 61.2px) rotateX(90deg) translateY(36px);
+    opacity: 0;
+  }
+}
+
+.playerBox .ballShadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 50% 75%, #0007, #0000 25%);
+  background-size: 100% 200%;
+  background-repeat: no-repeat;
+  animation: playerBallShadow 2.5s infinite ease-in;
+  animation-delay: inherit;
+}
+
+@keyframes playerBallShadow {
+  0%, 100% {
+    background-position-y: 100%;
+    opacity: 1;
+  }
+  5%, 85% {
+    background-position-y: 0%;
+    opacity: 0;
+  }
+}
